@@ -10,6 +10,8 @@ import csv
 
 def loadData(filename : str) -> tuple[dict, dict, dict]:
     with open(filename, mode='r', newline='', encoding='utf-8') as file:
-        reader = csv.reader(file);
+        reader = csv.DictReader(file);
         for row in reader:
-            print(row)
+            print(row['IDENT'], ': Min Alitutde ', row['MEA_E_VAL'], 
+                ' Magnetic fly ', row['MAGTRK'], " between ", 
+                row['RTPORT_ID'], " distance ", row['LENGTH_VAL'])
